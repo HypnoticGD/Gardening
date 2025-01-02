@@ -79,13 +79,21 @@ AddEventHandler('gardening:startJob', function()
         isOnJob = true
         currentMarker = 1
         spawnMowerAtLocation() -- Spawns the mower at predefined locations from config.lua
-        exports['cdn-fuel']:SetFuel(mower, 99.9)
+            if Config.FuelSystem == 'cdn-fuel' then
+                exports['cdn-fuel']:SetFuel(mower, 100)
+            elseif Config.FuelSystem == 'x-fuel' then
+                exports['x-fuel']:SetFuel(mower, 100)
+            elseif Config.FuelSystem == 'LegacyFuel' then
+                exports['LegacyFuel']:SetFuel(mower, 100)
+            elseif Config.FuelSystem == '' then
+                -- add your export for giving the vehicle Fuel.
+            end
         setNextMarker()
         updateBlipForMarker(Config.Markers[currentMarker]) -- Create initial blip
-
         QBCore.Functions.Notify("INFORMATION", "Arbeit angetreten, Fahren zu die den Makierungen auf der map!", 5000)
     end
 end)
+
 
 function spawnMowerAtLocation()
     if mower == nil then -- Ensures that we don't spawn a second mower if one already exists
