@@ -12,6 +12,8 @@ Config.MowerSpawnLocations = {
     vector4(-1325.33, 40.6, 53.04, 273.76)
 }
 
+Config.FuelSystem = 'cdn-fuel' -- 'x-fuel', 'LegacyFuel', 'cdn-fuel'
+
 -- Example marker positions for mowing tasks (using vector3)
 Config.Markers = {
     vector3(-1305.771, 37.722171, 52.067142),
