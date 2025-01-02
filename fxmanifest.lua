@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'HypnoticGD'
 description 'Gardening Job Script for qb-core'
-version '1.0.0'
+version '1.0.1'
 
 shared_script {
     'config.lua'
